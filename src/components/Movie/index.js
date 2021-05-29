@@ -1,5 +1,6 @@
 import Rating from '../Rating';
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Movie extends React.Component {
   render() {
@@ -13,5 +14,11 @@ class Movie extends React.Component {
     );
   }
 }
+
+Movie.propTypes = {
+  title: PropTypes.string,
+  genre: PropTypes.string,
+  reviewScore: PropTypes.number,
+};
 
 export default Movie;

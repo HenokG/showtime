@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Rating extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       score: props.score,
     };
@@ -19,5 +19,9 @@ class Rating extends React.Component {
     );
   }
 }
+
+Rating.propTypes = {
+  score: PropTypes.number,
+};
 
 export default Rating;
