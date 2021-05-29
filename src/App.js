@@ -1,24 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
-import Movie from './Movie';
+import Movie from './components/Movie';
+import AddMovie from './components/AddMovie';
+import React from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Movie title="Eternals" reviewScore={3}/>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  constructor() {
+    super();
+    this.state = {
+      movies: [{
+        title: 'Eternals',
+        genre: 'Epic',
+      }]
+    }
+  }
+
+  onAddMovie({title, genre}) {
+    this.setState({
+      movies: [...this.state.movies, {title, genre}]
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <AddMovie onAddMovie={(movie) => this.onAddMovie(movie)}/>
+          {
+            this.state.movies && this.state.movies.map(movie => <Movie {...movie} reviewScore={3}/>)
+          }
+        </header>
+      </div>
+    );
+  }
+  
 }
 
 export default App;
