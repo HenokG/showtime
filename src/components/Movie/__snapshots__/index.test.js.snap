@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Movie Component should render given title, genre and reviewScore 1`] = `
+Array [
+  <h3>
+    The 
+    Eternals
+  </h3>,
+  <small>
+    action
+  </small>,
+  <small
+    onClick={[Function]}
+  >
+    9.9
+  </small>,
+]
+`;
